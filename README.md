@@ -48,3 +48,4 @@ In the **default** lifecycle:
 
 If we run the command `mvn package`, the **package** word means it is a phase, a step in the build lifecycle. Running the mvn command with this phase, means that every phase in the sequence until this one (this one included )
 
+http://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1010500.json 
