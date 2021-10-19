@@ -17,7 +17,7 @@
 
 **ARTIFACT == LIBRARY**
 
-## Build lifecycle basics
+### Build lifecycle basics
 
 **Lifecycles** 
 - default (handles project deployment)
@@ -48,7 +48,7 @@ archetipe: nome app
 
 **cache local maven -> ~/.m2/repository**
 
-## POM
+### POM
 
 In the POM we can add inforamtion about:
 - name of the project 
@@ -121,7 +121,7 @@ In the POM we can add inforamtion about:
     </properties>
     ```
 
-## Useful Artifacts
+### Useful Artifacts
 
 - [Retrofit](https://square.github.io/retrofit/)
     - Http client for Java
@@ -134,3 +134,13 @@ In the POM we can add inforamtion about:
 
 
 > If we want to pass arguments to a program by executing with the maven command `mvn exec:java` we can pass them by using the tag `-Dexec.args="arg1 arg2 arg3"`. To pass multiple arguments we just need to separate them with a space in the tag.
+
+
+## **GIT**
+
+### .gitignore file
+
+Some important rules:
+- blank line dont mean nothing, they can be used for separation purposes (readability)
+- for comments `#`, to use this symbol as part of a file name or path use `\`
+- the prefix `!` is used for negate a pattern, if used a file is included again, not removed
