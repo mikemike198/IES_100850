@@ -144,3 +144,13 @@ Some important rules:
 - blank line dont mean nothing, they can be used for separation purposes (readability)
 - for comments `#`, to use this symbol as part of a file name or path use `\`
 - the prefix `!` is used for negate a pattern, if used a file is included again, not removed
+
+### Creating a Git Repository and cloning it withb GitHub
+
+Steps:
+- `cd project_folder` project_folder is the directory where the project to be uploaded to git
+- `git init` this command makes the directory git ready
+- `git remote add origin <REMOTE_URL>` this command link the repository of the GitHub with the local repository that we have on our machine. The REMOTE_URL is the Url of the GitHub repo
+- `git add.` this command adds all of the files in the directory to the staging area. The dot means that all files will be added.
+- `git commit -m "Initial project setup for exercise 1_3"` this command saves the changes made in the staging area. The -m tag stands for the message, that is the part in aspas.
+- `git push -u origin main` uploads the local commits to GitHub repo. 

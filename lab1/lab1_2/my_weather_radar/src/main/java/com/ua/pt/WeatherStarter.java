@@ -8,7 +8,8 @@ import com.ua.pt.IpmaCityForecast;
 import com.ua.pt.IpmaService;
 import com.ua.pt.CityForecast;
 
-import java.util.logging.Logger;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
 
 /**
@@ -18,9 +19,12 @@ import java.util.logging.Logger;
 public class WeatherStarter 
 {
     private static final int CITY_ID_AVEIRO = 1010500;
-    private static final Logger logger = Logger.getLogger(WeatherStarter.class.getName());
+    
+    private static Logger logger = LogManager.getLogger(WeatherStarter.class);
+
     public static void main( String[] args )
     {
+        System.setProperty("log4j.configurationFile","./path_to_the_log4j2_config_file/log4j2.xml");
         int city_id = Integer.parseInt(args[0]);
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://api.ipma.pt/open-data/")
@@ -38,7 +42,7 @@ public class WeatherStarter
                 logger.info( "max temp for today: " + forecast.getData().
                         listIterator().next().getTMax());
             } else {
-                logger.info( "No results!");
+                logger.info("No results!");
             }
         } catch (Exception ex) {
             ex.printStackTrace();
