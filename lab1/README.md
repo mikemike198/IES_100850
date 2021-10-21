@@ -153,4 +153,51 @@ Steps:
 - `git remote add origin <REMOTE_URL>` this command link the repository of the GitHub with the local repository that we have on our machine. The REMOTE_URL is the Url of the GitHub repo
 - `git add.` this command adds all of the files in the directory to the staging area. The dot means that all files will be added.
 - `git commit -m "Initial project setup for exercise 1_3"` this command saves the changes made in the staging area. The -m tag stands for the message, that is the part in aspas.
-- `git push -u origin main` uploads the local commits to GitHub repo. 
+- `git push -u origin main` uploads the local commits to GitHub repo. We can also use `git push`
+- `git pull` to update our local repo from the remote repo
+
+## **Docker**
+
+Docker functionalities:
+- Portable deployment of applications as a single object
+- Application-centric versus machine/server-centric
+- Supports for automatic container builds
+- Built-in version tracking
+- Reusable components
+- Public registry for sharing containers
+
+> Container: a sandboxed process that is isolated from all other processes on the host machine.
+
+> Container Image: contains everything needed to run an application - all dependencies, configuration, scripts, binaries, etc. It also contains other configuration for the container, such as environment variables, a default command to run, and other metadata.
+
+> Conecting to an instance of postgres running in a container: `pgcli -h localhost -U postgres -d postgres -p 5433`
+
+**Dockerfile**
+A Dockerfile is simply a text-based script of instructions that is used to create a container image
+
+To create a container image from a Dockerfile:
+- `docker build -t getting-started .` this command must be used in the directory of the Dockerfile. 
+
+To start a container:
+- `docker run -dp 3000:3000 getting-started`
+
+> WORKDIR: The WORKDIR instruction sets the working directory for any RUN, CMD, ENTRYPOINT, COPY and ADD instructions that follow it in the Dockerfile
+
+> We can't specify the host directory for a volume in a Dockerfile. To do so, when we run the command to run the container we specify the mount using for example `-v $HOME/docker/volumes/postgres:/var/lib/postgresql/data`
+
+**Docker compose**
+
+To run an app with compose we use the command `docker-compose up`
+
+
+## **Review Questions**
+
+**A** The default cycle is compose of many phases. The main ones are validate, compile, test, package, verify, install and deploy. The validate phase is where maven validates the code that was written in terms of errors in code. The compile phase is where maven will compile all the project, ready to be executed. the test phase is a very important one, is where maven will run all the tests written and verify if the code passses them all, if not the cycle will end (same as the other phases). The package phase maven will package the project into whatever format we want, the most common is JAR.
+
+**B** Yes. Maven is build tool but is also a tool used to run the project and do other things too, like deploy the project, test the project etc.
+
+**C** The commands that I would use are: `git pull`, `git add .`, `git commit -m "message"`, `git push`
+
+**D** Commit messages should be very readable in terms of other people being able to understand what that commit (increment) was all about. Commit messages should not be too long. Normaly, in team projects, there are rules to write commit messages, like key words, topics, etc to be able to localize better the commits if needed.
+
+**E** It is important because the container data is temporary, meaning that it only is available if the container is running. If the container is down or even deleted we cant access the data, wheter is temporaraly or even forever. So its is important to map the data in a container to the data in the host machine. In the case of a production database, we want the data to persist, so that even when the container is down, or deleted the data is safely stored in the server that is running the container. 
