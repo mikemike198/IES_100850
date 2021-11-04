@@ -1,0 +1,10 @@
+digraph "pt.ua:web_app:war:1.0-SNAPSHOT" { 
+	"pt.ua:web_app:war:1.0-SNAPSHOT" -> "javax:javaee-web-api:jar:7.0:provided" ; 
+	"pt.ua:web_app:war:1.0-SNAPSHOT" -> "org.eclipse.jetty:jetty-server:jar:9.2.15.v20160210:compile" ; 
+	"pt.ua:web_app:war:1.0-SNAPSHOT" -> "org.eclipse.jetty:jetty-servlet:jar:9.2.15.v20160210:compile" ; 
+	"org.eclipse.jetty:jetty-server:jar:9.2.15.v20160210:compile" -> "javax.servlet:javax.servlet-api:jar:3.1.0:compile" ; 
+	"org.eclipse.jetty:jetty-server:jar:9.2.15.v20160210:compile" -> "org.eclipse.jetty:jetty-http:jar:9.2.15.v20160210:compile" ; 
+	"org.eclipse.jetty:jetty-server:jar:9.2.15.v20160210:compile" -> "org.eclipse.jetty:jetty-io:jar:9.2.15.v20160210:compile" ; 
+	"org.eclipse.jetty:jetty-http:jar:9.2.15.v20160210:compile" -> "org.eclipse.jetty:jetty-util:jar:9.2.15.v20160210:compile" ; 
+	"org.eclipse.jetty:jetty-servlet:jar:9.2.15.v20160210:compile" -> "org.eclipse.jetty:jetty-security:jar:9.2.15.v20160210:compile" ; 
+ } 

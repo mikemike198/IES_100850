@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Getting Started: Serving Web Content</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+    body {
+        display:flex; 
+        flex-direction:column; 
+        justify-content: space-evenly;
+        align-items:center;
+        min-height:100vh;
+        margin: 0 30vw;
+    }
+
+    label {
+        font-size: 3vh;
+    }
+
+    input {
+        font-size: 3vh;
+    }
+
+    input[type="text"] {
+        width: 30vw;
+    }
+
+    .submit {
+        display: flex;
+        width: 30vw;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    </style>
+</head>
+<body>
+    <form action="#" th:action="@{/home}" th:object="${name_form}" method="post">
+        <label for="name">Name</label><br>
+        <input type="text" id="fname" name="name"><br>
+        <div class="submit">
+            <input type="submit" name="action" value="Submit">
+            <input type="submit" name="action" value="Api">
+        </div>
+    </form>
+          
+</body>
+</html>
