@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+
+    <title>Add User</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style>
+        body {
+        display:flex; 
+        flex-direction:column; 
+        justify-content: space-evenly;
+        align-items:center;
+        min-height:100vh;
+        font-family: 'Poppins', sans-serif;
+        background-color: #DDCA7D;
+        margin: 0 30vw;
+        }
+
+        label {
+            padding-right: 2vw;
+        }
+
+        input[type="submit"] {
+            color: white;
+            background-color: #533E2D;
+            border-radius: 10px;
+            padding: 1vh 1vw;
+            font-size: 2vh;
+            border: none;
+        }
+
+        input[type="text"] {
+            background: transparent;
+            outline: 0;
+            border-width: 0 0 2px;
+            border-color: #533E2D;
+            width: 15vw;
+            font-size: 1.5vw;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+        }
+
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type="text"] {
+            -moz-appearance: textfield;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Add User</h1>
+        <form action="#" th:action="@{/adduser}" th:object="${user}" method="post">
+            <label for="name">Name</label>
+            <input type="text" th:field="*{name}" id="name" placeholder="Name"><br>
+            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span><br>
+            <label for="email">Email</label>
+            <input type="text" th:field="*{email}" id="email" placeholder="Email"><br>
+            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span><br>
+            <label for="phone">Phone</label>
+            <input type="text" th:field="*{phone}" id="phone" placeholder="Phone"><br>
+            <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span><br>
+            <input type="submit" value="Add User">
+        </form>
+    </div>
+</body>
+</html>

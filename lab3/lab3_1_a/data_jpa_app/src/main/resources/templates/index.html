@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+
+    <title>Add User</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style>
+        body {
+        display:flex; 
+        flex-direction:column; 
+        justify-content: space-evenly;
+        align-items:center;
+        min-height:100vh;
+        font-family: 'Poppins', sans-serif;
+        background-color: #DDCA7D;
+        margin: 0 30vw;
+        }
+
+        td, th {
+            text-align:left;
+            padding-right: 2vw;
+        }
+
+        .newUser {
+            text-decoration: none;
+            color: white;
+            background-color: #533E2D;
+            border-radius: 10px;
+            padding: 1vh 1vw;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-content: center;
+            width: 10vw;
+            margin-top: 2vh;
+        }
+
+        .link {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div th:switch="${users}">
+        <h1 th:case="null">No users yet!</h1>
+        <div th:case="*">
+            <h1>Users</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="user : ${users}">
+                        <td th:text="${user.name}"></td>
+                        <td th:text="${user.email}"></td>
+                        <td th:text="${user.phone}"></td>
+                        <td><a th:href="@{/edit/{id}(id=${user.id})}">Edit</a></td>
+                        <td><a th:href="@{/delete/{id}(id=${user.id})}">Delete</a></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <div class="link">
+            <a href="/signup" class="newUser">Add a new user</a>
+        </div>
+    </div>
+</body>
+</html>
